@@ -1,0 +1,5 @@
+C:\perf_auto\Jellyfish\CRM.Performance.Automation.JellyFish\JellyFish\JellyFish\bin\Release\JellyFish.dll
+C:\perf_auto\Jellyfish\CRM.Performance.Automation.JellyFish\JellyFish\JellyFish\bin\Release\JellyFish.pdb
+C:\perf_auto\Jellyfish\CRM.Performance.Automation.JellyFish\JellyFish\JellyFish\obj\Release\JellyFish.csprojResolveAssemblyReference.cache
+C:\perf_auto\Jellyfish\CRM.Performance.Automation.JellyFish\JellyFish\JellyFish\obj\Release\JellyFish.dll
+C:\perf_auto\Jellyfish\CRM.Performance.Automation.JellyFish\JellyFish\JellyFish\obj\Release\JellyFish.pdb

@@ -1,0 +1,7 @@
+INDEX VERSION 1.3+C:\Users\bipadh\Documents\GitHub\Adv\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3533522437.index
+4139624640.index
+397817724.index
+3335125926.index
+3034327768.index
+3720891536.index

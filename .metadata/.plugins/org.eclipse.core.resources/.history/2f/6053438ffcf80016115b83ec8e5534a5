@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>Upload File Request Page</title>
+</head>
+<body>
+	<form method="POST" action="/AdvantoWS/uploadFile" enctype="multipart/form-data">
+		1st File to upload: <input type="file" name="file">
+		<br/> 
+		2nd File to upload: <input type="file" name="file">
+		Name: <input type="text" name="name">
+ 
+ 
+		 <button type="submit" value="Submit">Submit</button>
+	</form>	
+</body>
+</html>

@@ -1,0 +1,5 @@
+C:\Users\bipadh\Documents\GitHub\Adv\AdvClient\JellyFish\bin\Debug\JellyFish.dll
+C:\Users\bipadh\Documents\GitHub\Adv\AdvClient\JellyFish\bin\Debug\JellyFish.pdb
+C:\Users\bipadh\Documents\GitHub\Adv\AdvClient\JellyFish\obj\Debug\JellyFish.dll
+C:\Users\bipadh\Documents\GitHub\Adv\AdvClient\JellyFish\obj\Debug\JellyFish.pdb
+C:\Users\bipadh\Documents\GitHub\Adv\AdvClient\JellyFish\obj\Debug\AdvantoLib.csprojResolveAssemblyReference.cache

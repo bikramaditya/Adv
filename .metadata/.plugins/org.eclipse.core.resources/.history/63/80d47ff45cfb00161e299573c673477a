@@ -1,0 +1,109 @@
+package com.adv.controller;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.adv.img.main.AdvMain;
+
+/**
+ * Handles requests for the application file upload requests
+ */
+@Controller
+public class FileUploadController {
+
+	/**
+	 * Upload single file using Spring Controller
+	 */
+	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+	public @ResponseBody
+	String uploadFileHandler(@RequestParam("name") String name,
+			@RequestParam("file") MultipartFile file) {
+
+		if (!file.isEmpty()) {
+			try {
+				byte[] bytes = file.getBytes();
+
+				String rootPath = System.getProperty("catalina.home");
+				File dir = new File(rootPath + File.separator + "tmpFiles");
+				if (!dir.exists())
+					dir.mkdirs();
+
+				File serverFile = new File(dir.getAbsolutePath()
+						+ File.separator + name);
+				BufferedOutputStream stream = new BufferedOutputStream(
+						new FileOutputStream(serverFile));
+				stream.write(bytes);
+				stream.close();
+
+				AdvMain advm = new AdvMain();
+				
+				String message +="<br/><hr/>"+advm.getCoords(sub_path, main_path);
+				 
+				return message;
+				
+				
+			} catch (Exception e) {
+				return "You failed to upload " + name + " => " + e.getMessage();
+			}
+		} else {
+			return "You failed to upload " + name
+					+ " because the file was empty.";
+		}
+	}
+
+	/**
+	 * Upload multiple file using Spring Controller
+	 */
+	@RequestMapping(value = "/uploadMultipleFile", method = RequestMethod.POST)
+	public @ResponseBody
+	String uploadMultipleFileHandler(@RequestParam("mainimg") String mainimg,
+			@RequestParam("subimg") String subimg,
+			@RequestParam("mainfile") MultipartFile mainfile,
+			@RequestParam("subfile") MultipartFile subfile) {
+
+		String message = "";
+		String main_path = store_file(mainimg, mainfile);
+		String sub_path = store_file(subimg, subfile);
+		
+		message = main_path+"<br/><hr/>"+sub_path;
+		
+		AdvMain advm = new AdvMain();
+		
+		message +="<br/><hr/>"+advm.getCoords(sub_path, main_path);
+		 
+		return message;
+	}
+
+	private String store_file(String mainimg, MultipartFile mainfile) {
+
+		MultipartFile file = mainfile;
+		String name = mainimg;
+		File serverFile;
+		try {
+			byte[] bytes = file.getBytes();
+
+			String rootPath = System.getProperty("catalina.home");
+			File dir = new File(rootPath + File.separator + "tmpFiles");
+			if (!dir.exists())
+				dir.mkdirs();
+
+			serverFile = new File(dir.getAbsolutePath()
+					+ File.separator + name);
+			BufferedOutputStream stream = new BufferedOutputStream(
+					new FileOutputStream(serverFile));
+			stream.write(bytes);
+			stream.close();
+		} catch (Exception e) {
+			return "You failed to upload " + name + " => " + e.getMessage();
+		}
+		return serverFile.getAbsolutePath();
+	}
+}

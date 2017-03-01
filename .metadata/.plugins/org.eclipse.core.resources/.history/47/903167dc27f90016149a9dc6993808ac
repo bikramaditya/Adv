@@ -1,0 +1,28 @@
+package com.adv.img.main;
+
+import java.awt.AWTException;
+import java.awt.Rectangle;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.sikuli.script.Match;
+import org.sikuli.script.Screen;
+
+import com.adv.img.util.*;
+
+public class AdvTest 
+{	
+	Match match; 
+	public String getCoords(String subImage, String mainImage) throws InterruptedException, IOException 
+	{		
+		AdvProcessor advProc = new AdvProcessor(subImage, mainImage);
+		try {
+			match = advProc.MatchAndClick();
+		} catch (AWTException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return mainImage;		
+	}
+}

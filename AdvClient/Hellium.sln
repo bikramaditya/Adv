@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelliumLib", "JellyFish\HelliumLib.csproj", "{2CBBFB77-0A65-4C17-AF18-AE5C2D1224B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelliumClient", "JellyFishAutomation\HelliumClient.csproj", "{B045A8C2-75C1-466A-814D-0C1AD45B385A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		DVD-5|Any CPU = DVD-5|Any CPU
+		Release|Any CPU = Release|Any CPU
+		SingleImage|Any CPU = SingleImage|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CBBFB77-0A65-4C17-AF18-AE5C2D1224B6}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{2CBBFB77-0A65-4C17-AF18-AE5C2D1224B6}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{2CBBFB77-0A65-4C17-AF18-AE5C2D1224B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CBBFB77-0A65-4C17-AF18-AE5C2D1224B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CBBFB77-0A65-4C17-AF18-AE5C2D1224B6}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CBBFB77-0A65-4C17-AF18-AE5C2D1224B6}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{2CBBFB77-0A65-4C17-AF18-AE5C2D1224B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CBBFB77-0A65-4C17-AF18-AE5C2D1224B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CBBFB77-0A65-4C17-AF18-AE5C2D1224B6}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{2CBBFB77-0A65-4C17-AF18-AE5C2D1224B6}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{B045A8C2-75C1-466A-814D-0C1AD45B385A}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{B045A8C2-75C1-466A-814D-0C1AD45B385A}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{B045A8C2-75C1-466A-814D-0C1AD45B385A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B045A8C2-75C1-466A-814D-0C1AD45B385A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B045A8C2-75C1-466A-814D-0C1AD45B385A}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{B045A8C2-75C1-466A-814D-0C1AD45B385A}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{B045A8C2-75C1-466A-814D-0C1AD45B385A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B045A8C2-75C1-466A-814D-0C1AD45B385A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B045A8C2-75C1-466A-814D-0C1AD45B385A}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{B045A8C2-75C1-466A-814D-0C1AD45B385A}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

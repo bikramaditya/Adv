@@ -1,0 +1,16 @@
+C:\perf_auto\Jellyfish\CRM.Performance.Automation.JellyFish\JellyFish\JellyFishAutomation\bin\Release\JellyFishAutomation.exe.config
+C:\perf_auto\Jellyfish\CRM.Performance.Automation.JellyFish\JellyFish\JellyFishAutomation\bin\Release\JellyFishAutomation.exe
+C:\perf_auto\Jellyfish\CRM.Performance.Automation.JellyFish\JellyFish\JellyFishAutomation\bin\Release\JellyFishAutomation.pdb
+C:\perf_auto\Jellyfish\CRM.Performance.Automation.JellyFish\JellyFish\JellyFishAutomation\bin\Release\JellyFish.dll
+C:\perf_auto\Jellyfish\CRM.Performance.Automation.JellyFish\JellyFish\JellyFishAutomation\bin\Release\JellyFish.pdb
+C:\perf_auto\Jellyfish\CRM.Performance.Automation.JellyFish\JellyFish\JellyFishAutomation\obj\Release\JellyFishAutomation.csprojResolveAssemblyReference.cache
+C:\perf_auto\Jellyfish\CRM.Performance.Automation.JellyFish\JellyFish\JellyFishAutomation\obj\Release\MainWindow.g.cs
+C:\perf_auto\Jellyfish\CRM.Performance.Automation.JellyFish\JellyFish\JellyFishAutomation\obj\Release\App.g.cs
+C:\perf_auto\Jellyfish\CRM.Performance.Automation.JellyFish\JellyFish\JellyFishAutomation\obj\Release\JellyFishAutomation_MarkupCompile.cache
+C:\perf_auto\Jellyfish\CRM.Performance.Automation.JellyFish\JellyFish\JellyFishAutomation\obj\Release\JellyFishAutomation_MarkupCompile.lref
+C:\perf_auto\Jellyfish\CRM.Performance.Automation.JellyFish\JellyFish\JellyFishAutomation\obj\Release\MainWindow.baml
+C:\perf_auto\Jellyfish\CRM.Performance.Automation.JellyFish\JellyFish\JellyFishAutomation\obj\Release\JellyFishAutomation.g.resources
+C:\perf_auto\Jellyfish\CRM.Performance.Automation.JellyFish\JellyFish\JellyFishAutomation\obj\Release\JellyFishAutomation.Properties.Resources.resources
+C:\perf_auto\Jellyfish\CRM.Performance.Automation.JellyFish\JellyFish\JellyFishAutomation\obj\Release\JellyFishAutomation.csproj.GenerateResource.Cache
+C:\perf_auto\Jellyfish\CRM.Performance.Automation.JellyFish\JellyFish\JellyFishAutomation\obj\Release\JellyFishAutomation.exe
+C:\perf_auto\Jellyfish\CRM.Performance.Automation.JellyFish\JellyFish\JellyFishAutomation\obj\Release\JellyFishAutomation.pdb

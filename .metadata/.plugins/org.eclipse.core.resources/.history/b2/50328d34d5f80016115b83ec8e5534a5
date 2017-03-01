@@ -1,0 +1,5 @@
+package com.adv.entities;
+
+public class Greeting {
+
+}
