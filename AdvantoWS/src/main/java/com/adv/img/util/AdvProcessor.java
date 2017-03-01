@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import org.sikuli.script.Match;
 
+import com.adv.img.util.ClosestPair.Point;
+
 public class AdvProcessor 
 {
 	private String subImage;
@@ -13,42 +15,14 @@ public class AdvProcessor
 		this.mainImage = mainImage;
 	}
 	
-	public Match getMatch() throws IOException
+	public Point getMatch() throws IOException
 	{
 		AdvImageProcessor advImgProc = new AdvImageProcessor();
 		
 		ArrayList<String> imgFiles = advImgProc.createAllSizes(this.subImage);
 		
-		ArrayList<Match> matchList = advImgProc.getAllMatches(this.mainImage ,imgFiles);
+		Point point = advImgProc.getAllMatches(this.mainImage ,imgFiles);
 		
-		if(matchList == null)
-		{
-			return null;
-		}
-		if(matchList.size() == 1)
-		{
-			return matchList.get(0);
-		}
-		if(matchList.size() > 1)
-		{
-			Match match = get_max_similarity(matchList);
-			return match;
-		}
-		return null;		
-	}
-
-	private Match get_max_similarity(ArrayList<Match> matchList) 
-	{
-		double similarity = 0.0;
-		Match fMatch = null;
-		for (Match match : matchList) {
-			if(match.getScore() > similarity)
-			{
-				similarity = match.getScore();
-				fMatch = match;
-			}
-		}
-		
-		return fMatch;
+		return point;		
 	}
 }

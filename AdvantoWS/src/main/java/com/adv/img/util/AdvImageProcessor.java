@@ -10,11 +10,16 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 
 import org.sikuli.script.Finder;
 import org.sikuli.script.Match;
+import org.sikuli.script.Pattern;
+
+import com.adv.img.util.ClosestPair.Pair;
+import com.adv.img.util.ClosestPair.Point;
 
 public class AdvImageProcessor {
 
@@ -100,15 +105,107 @@ public class AdvImageProcessor {
 		return ret;
 	}
 
-	public ArrayList<Match> getAllMatches(String mainImage, ArrayList<String> imgFiles) throws IOException 
+	public Point getAllMatches(String mainImage, ArrayList<String> imgFiles) throws IOException 
 	{
-		Finder finder = new Finder(mainImage);
-		ArrayList<Match> matchList = tryAgainWithAllCombo(finder, imgFiles);
-		return matchList;
+		ArrayList<Match> matchList = tryAgainWithAllCombo(mainImage, imgFiles);
+		
+		
+		if(matchList == null || matchList.size()==0) return null;
+		else if(matchList.size()==1)
+			{
+				Match match = matchList.get(0);
+				return new Point(match.x, match.y, match.w, match.h);
+			}
+		else
+		{
+			print(matchList);
+			//Match bestMatch = get_max_similarity(matchList);
+			List<Point> pointsList = new ArrayList<Point>();
+			for (Match match : matchList) {
+				pointsList.add(new Point(match.x,match.y, match.w, match.h));
+			}
+			
+			Pair dqClosestPair = ClosestPair.divideAndConquer(pointsList);
+			
+			//Point p = pointFromSmallestCircle(pointsList);
+			
+			return dqClosestPair.point1;
+		}
 	}
 	
 	
-	private ArrayList<Match> tryAgainWithAllCombo(final Finder finder, ArrayList<String> imgFiles) 
+	
+	private Point pointFromSmallestCircle(List<Point> pointsList) 
+	{
+		int radius = Integer.MAX_VALUE;
+		
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private void print(ArrayList<Match> matchList) 
+	{
+		for (Match match : matchList) {
+			System.out.println(match.x+","+match.y);
+		}
+	}
+
+	private Match get_max_similarity(ArrayList<Match> matchList) 
+	{
+		double similarity = 0.0;
+		Match fMatch = null;
+		for (Match match : matchList) {
+			if(match.getScore() > similarity)
+			{
+				similarity = match.getScore();
+				fMatch = match;
+			}
+		}
+		
+		return fMatch;
+	}
+	private Match getBestMatch(ArrayList<Match> matchList) 
+	{
+		double minDist = Double.MAX_VALUE;
+		Match m1 = null;
+		Match m2 = null;
+		
+		for (int i = 0 ; i < matchList.size() ; i++) {
+			for (int j = i; j < matchList.size() ; j++) {				
+				Match match1 = matchList.get(i);
+				Match match2 = matchList.get(j);
+				if(match1 != match2)
+				{
+					double dist = getDist(match1, match2);
+					if(dist < minDist)
+					{
+						m1 = match1;
+						m2 = match2;
+					}
+				}
+			}
+		}
+		m1.x = (m1.x+m2.x)/2;
+		m1.y = (m1.y+m2.y)/2;
+		m1.w = (m1.w+m2.w)/2;
+		m1.h = (m1.h+m2.h)/2;
+		return m1;
+	}
+
+	private double getDist(Match match1, Match match2) 
+	{
+		try
+		{
+			double sqr = (match1.x-match2.x)*(match1.x-match2.x) + (match1.y-match2.y)*(match1.y-match2.y);
+			return Math.sqrt(sqr);
+		}
+		catch(Exception e)
+		{
+			return Double.MAX_VALUE;
+		}
+	}
+
+	private ArrayList<Match> tryAgainWithAllCombo(String mainImage, ArrayList<String> imgFiles) 
 	{
 		Date startTime = new Date();
 		System.out.println("Start..." + startTime);
@@ -117,9 +214,17 @@ public class AdvImageProcessor {
 
 		class OneShotTask implements Runnable {
 			String image = "";
-
-			OneShotTask(String str) {
+			Finder localFinder;
+			String localMain;
+			OneShotTask(String str, String mainImage) {
 				image = str;
+				localMain = mainImage;
+				try {
+					localFinder = new Finder(localMain);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}				
 			}
 
 			public void run() {
@@ -129,19 +234,20 @@ public class AdvImageProcessor {
 					System.out.println();
 				}
 
-				finder.findAll(image);				
-				while(finder.hasNext())
+				localFinder.find(new Pattern(image).similar((float) 0.85));	//Pattern("captured.png").similar(0.95)			
+				while(localFinder.hasNext())
 				{
-					Match m = finder.next();
+					Match m = localFinder.next();
 					matchList.add(m);
 				}
+				localFinder.destroy();
 			}
 		}
 
 		ArrayList<Thread> allThreads = new ArrayList<Thread>();
 
 		for (String image : imgFiles) {
-			Thread t = new Thread(new OneShotTask(image));
+			Thread t = new Thread(new OneShotTask(image, mainImage));
 			allThreads.add(t);
 			t.start();
 		}
